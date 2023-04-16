@@ -1,16 +1,16 @@
 .sidebar {
     position: relative;
-    margin: 0 10px 0 0;
+    margin: 0 0 0 0;
     z-index: 10;
     padding: 40px 40px 0;
-    width: 10%;
-    background-color: rgba(0, 0, 0, 0.65);
+    background: none;
 }
 
 #sidebar-wrapper{
+    background: rgba(0, 0, 0, 0.5);
     min-height: 100vh !important;
-    width: 100vw;
-    margin-left: -1rem;
+    width: 15%;
+    margin-left: 20px;
     -webkit-transition: margin .25s ease-out;
     -moz-transition: margin .25s ease-out;
     transition: margin .25s ease-out;
@@ -29,5 +29,12 @@
 .nav-item{
     justify-content: center;
     align-items: center;
-    
+    width: fit-content;
+}
+
+.nav-link{
+    position: relative;
+    color: antiquewhite;
+    text-decoration: none;
+    padding: 5px;
 }
