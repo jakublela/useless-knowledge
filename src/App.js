@@ -6,7 +6,7 @@ import './modules/sidebar/sidebar.css';
 const App = props => {
   return (
     <Container fluid>
-        <Col id="sidebar-wrapper" style={{color: 'red'}}>
+        <Col id="sidebar-wrapper">
           <Sidebar/>
         </Col>
     </Container>
