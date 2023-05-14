@@ -6,13 +6,15 @@ function SideMenu() {
     return (
         <Navbar variant='dark' bg='dark' expand='lg' className='navbar'>
             <Container className='navbar-wrapper'>
-                <Navbar.Brand>Menu</Navbar.Brand>
+                <Navbar.Brand>
+                    <p>✨Useless✨<br/>✨Knowledge✨</p>
+                </Navbar.Brand>
                     <Nav>
                         <DropItem itemTitle='Random'/>
                         <DropItem itemTitle='Categories'/>
                         <DropItem itemTitle='Add your own'/>
                         <DropItem itemTitle='Saved'/>
-                        <DropItem itemTitle='Random'/>
+                        <DropItem itemTitle='Loose braincells'/>
                     </Nav>
             </Container>
         </Navbar>

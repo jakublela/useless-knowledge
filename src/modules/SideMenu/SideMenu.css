@@ -35,3 +35,11 @@
     background: #47474710;
     border: #400081 solid 3px;
 }
+
+p{
+    background: none;
+    color: antiquewhite;
+    padding: 0 0 10px 0;
+    margin: auto;
+    text-align: center;
+}
