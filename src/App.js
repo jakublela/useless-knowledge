@@ -9,7 +9,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 const App = props => {
   return (
     <Container fluid>
-        <Col id="sidebar-wrapper" style={{color: 'red'}}>
+        <Col id="sidebar-wrapper">
           <Sidebar/>
           <SideMenu/>
         </Col>
