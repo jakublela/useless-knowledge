@@ -1,5 +1,5 @@
 import './App.css';
-import {Container, Row, Col, Card, Form, Button} from 'react-bootstrap';
+import {Container, Col} from 'react-bootstrap';
 import Sidebar from './modules/sidebar/sidebar.js';
 import './modules/sidebar/sidebar.css';
 import "bootstrap/dist/css/bootstrap.min.css";
