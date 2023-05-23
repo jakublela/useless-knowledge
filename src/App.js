@@ -1,6 +1,7 @@
 import './App.css';
 import {Container, Col} from 'react-bootstrap';
 import Sidebar from './modules/sidebar/sidebar.js';
+import Main from './modules/Main/Main.js';
 import './modules/sidebar/sidebar.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -8,9 +9,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 const App = props => {
   return (
     <Container fluid>
-        <Col id="sidebar-wrapper">
+        <div id="sidebar-wrapper">
           <Sidebar/>
-        </Col>
+        </div>
+        <div id='main-wrapper'>
+          <Main/>
+        </div>
     </Container>
   );
 }
