@@ -1,5 +1,5 @@
 import './App.css';
-import {Container, Col} from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Sidebar from './modules/sidebar/sidebar.js';
 import Main from './modules/Main/Main.js';
 import './modules/sidebar/sidebar.css';

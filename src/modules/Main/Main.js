@@ -15,19 +15,19 @@ function Main() {
                 element={<HomePage/>}
                 />
             <Route 
-                path='/random'
+                path='/random/:type'
                 element={<RandomPage/>}
                 />
             <Route 
-                path='/categories'
+                path='/categories/:type'
                 element={<CategoriesPage/>}
                 />
             <Route 
-                path='/create'
+                path='/create/:type'
                 element={<CreatePage/>}
                 />
             <Route 
-                path='/saved'
+                path='/saved/:type'
                 element={<SavedPage/>}
                 />
         </Routes>
