@@ -3,7 +3,10 @@
     background: white;
     position: relative;
     background: none;
-    padding: 12% 10% 0 10%;
+    padding: 12% 10% 12% 10%;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }
 
 /* sidebar position */
@@ -12,6 +15,9 @@
     margin: 0 0 0 0;
     z-index: 10;
     background: none;
+    display: flex !important;
+    flex-flow: column !important;
+    height: 100%;
 }
 
 /* sidebar settings */
@@ -23,6 +29,10 @@
     -webkit-transition: margin .25s ease-out;
     -moz-transition: margin .25s ease-out;
     transition: margin .25s ease-out;
+}
+
+.navigation{
+    background: none;
 }
 
 /* navigation box settings */
@@ -44,6 +54,17 @@
     display: flex;
 }
 
+.ooger{
+    margin-bottom: auto;
+    background: none;
+}
+
+.space-between{
+    background: none;
+    height: 100% !important;
+    justify-content: space-between;
+}
+
 hr{
     border: solid 1px #6e6e6e !important;
     border-radius: 5px !important;
@@ -57,16 +78,22 @@ p{
     text-align: center;
 }
 
-img{
-    width: 20%;
-    height: auto;
-    background: none;
-    border-radius: 50%;
+.sidebar-sticky p{
+    flex: 0 1 auto;
 }
 
-footer{
-    margin-bottom: 1px;
+.sidebar-sticky .navigation{
+    flex: 1 1 auto;
+}
+
+.sidebar-sticky .ooger{
+    flex: 0 1 auto;
+}
+
+img{
+    width: 15%;
     background: none;
+    border-radius: 50%;
 }
 
 /* <---- backup ----> */

@@ -9,22 +9,24 @@ const Sidebar = props => {
             <div className="sidebar-sticky">
                 <p>✨Useless✨<br/>✨Knowledge✨</p>
                 <hr/>
-                <Nav.Item>
-                    <DropItem itemTitle='Random' className='dropdown'/>
-                </Nav.Item>
-                <Nav.Item>
-                    <DropItem itemTitle='Categories' className='dropdown'/>
-                </Nav.Item>
-                <Nav.Item>
-                    <DropItem itemTitle='Create' className='dropdown'/>
-                </Nav.Item>
-                <Nav.Item>
-                    <DropItem itemTitle='Saved' className='dropdown'/>
-                </Nav.Item>
-                <Nav.Item>
-                    <DropItem itemTitle='Loose braincells' className='dropdown'/>
-                </Nav.Item>
-                <footer>
+                <div className='navigation'>
+                    <Nav.Item>
+                        <DropItem itemTitle='Random' className='dropdown'/>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <DropItem itemTitle='Categories' className='dropdown'/>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <DropItem itemTitle='Create' className='dropdown'/>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <DropItem itemTitle='Saved' className='dropdown'/>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <DropItem itemTitle='Loose braincells' className='dropdown'/>
+                    </Nav.Item>
+                </div>
+                <footer className="ooger">
                     <hr/>
                     <div className="user-info">
                         <img src={pfp} className="user" alt="pfp"/>
