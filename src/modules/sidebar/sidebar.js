@@ -2,11 +2,12 @@ import React from 'react';
 import {Dropdown, DropdownButton, Nav} from 'react-bootstrap';
 import './sidebar.css';
 import pfp from './default_pfp.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = props => {
     return (
-        <Nav className="col-md-12 d-none d-md-block sidebar">
-            <div className="sidebar-sticky">
+        <Nav className="sidebar-sticky">
+            <nav className="sidebar">
                 <p>✨Useless✨<br/>✨Knowledge✨</p>
                 <hr/>
                 <div className='navigation'>
@@ -33,20 +34,24 @@ const Sidebar = props => {
                         <p className="user">Username</p>
                     </div>
                 </footer>
-            </div>
+            </nav>
         </Nav>
     );
 };
 
 function DropItem({itemTitle}) {
+    let navigate = useNavigate();
+
     return (
-        <DropdownButton drop='down-centered' className='dropdown-button' variant='secondary' title={itemTitle}>
-            <Dropdown.Item>Trivia</Dropdown.Item>
-            <Dropdown.Divider/>
-            <Dropdown.Item>Facts</Dropdown.Item>
-            <Dropdown.Divider/>
-            <Dropdown.Item>Riddles</Dropdown.Item>
-        </DropdownButton>
+        <Nav.Item>
+            <DropdownButton drop='down-centered' className='dropdown-button' variant='secondary' title={itemTitle}>
+                <Dropdown.Item onClick={() => navigate(`/${itemTitle.toLowerCase()}/trivia`)}>Trivia</Dropdown.Item>
+                <Dropdown.Divider/>
+                <Dropdown.Item onClick={() => navigate(`/${itemTitle.toLowerCase()}/facts`)}>Facts</Dropdown.Item>
+                <Dropdown.Divider/>
+                <Dropdown.Item onClick={() => navigate(`/${itemTitle.toLowerCase()}/riddles`)}>Riddles</Dropdown.Item>
+            </DropdownButton>
+        </Nav.Item>
     )
     
 }
