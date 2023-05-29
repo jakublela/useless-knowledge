@@ -5,6 +5,7 @@ import Main from './modules/Main/Main.js';
 import './modules/sidebar/sidebar.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { Suspense } from 'react';
 
 const App = props => {
   return (
@@ -13,7 +14,7 @@ const App = props => {
           <Sidebar/>
         </div>
         <div id='main-wrapper'>
-          <Main/>
+            <Main/>
         </div>
     </Container>
   );
