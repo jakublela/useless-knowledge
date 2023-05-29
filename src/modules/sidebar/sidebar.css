@@ -2,10 +2,11 @@
 .sidebar-sticky{
     position: relative;
     background: none;
-    margin: 12% 10% 0 10%;
+    margin: 12% 10% 12% 10%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    width: 100% !important;
 }
 
 /* sidebar position */
@@ -24,7 +25,7 @@
 #sidebar-wrapper{
     background: #1A1A1A;
     min-height: 100vh !important;
-    width: 15%;
+    width: 13%;
     margin: 0;
     -webkit-transition: margin .25s ease-out;
     -moz-transition: margin .25s ease-out;
@@ -58,6 +59,7 @@
 .ooger{
     margin-bottom: auto;
     background: none;
+    margin-bottom: 10px !important;
 }
 
 .space-between{
@@ -69,6 +71,7 @@
 hr{
     border: solid 1px #6e6e6e !important;
     border-radius: 5px !important;
+    width: 100% !important;
 }
 
 p{
@@ -92,37 +95,7 @@ p{
 }
 
 img{
-    width: 15%;
+    max-width: 80px !important;
     background: none;
     border-radius: 50%;
 }
-
-/* <---- backup ----> */
-/*.nav-link{
-    color: antiquewhite;
-    text-decoration: none;
-    display: inline-block;
-    padding: 7px 0 0 13px;
-    margin-bottom: 10px;
-    width: 90%;
-    height: 30px;
-    background: none;
-    border: #1A1A1A solid 3px;
-    border-radius: 15px;
-}
-
-.nav-link:hover{
-    background: #47474710;
-    border: #400081 solid 3px;
-
-}
-
-#sidebar-wrapper .sidebar-heading{
-    font-size: 1.2rem;
-    padding: 0.875rem 1.25rem;
-}
-
-#page-content-wrapper{
-    min-width: 0;
-    width: 100%;
-}*/
