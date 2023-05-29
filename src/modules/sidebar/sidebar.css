@@ -99,3 +99,12 @@ img{
     background: none;
     border-radius: 50%;
 }
+
+.login{
+    background: none;
+    border: none !important;
+}
+
+.login:hover{
+    color: rgb(122, 115, 104);
+}
