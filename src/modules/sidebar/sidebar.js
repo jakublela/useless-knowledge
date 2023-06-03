@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react';
-import {Dropdown, DropdownButton, Nav, Overlay, Button} from 'react-bootstrap';
+import {Dropdown, DropdownButton, Nav, Overlay, Popover, PopoverBody, Button} from 'react-bootstrap';
 import './sidebar.css';
 import pfp from './default_pfp.jpg';
 import { useNavigate } from 'react-router-dom';
@@ -36,30 +36,7 @@ const Sidebar = props => {
                         <img src={pfp} className="user" alt="pfp"/>
                         <p className="user">
                             Username<br/>
-                            <button variant="danger" ref={target} onClick={() => setShow(!show)} className="login">Pop-up</button>
-                            <Overlay target={target.current} show={show} placement="top">
-                                {({
-                                    placement: _placement,
-                                    arrowProps: _arrowProps,
-                                    show: _show,
-                                    popper: _popper,
-                                    hasDoneInitialMeasure: _hasDoneInitialMeasure,
-                                    ...props
-                                }) => (
-                                    <div {...props}
-                                        style={{
-                                            position: 'absolute',
-                                            backgroundColor: 'rgba(255, 100, 100, 0.85',
-                                            padding: '2px 10px',
-                                            color: 'white',
-                                            borderRadius: 3,
-                                            ...props.style,
-                                        }}>
-                                        Simple Tooltipen
-                                    </div>
-                                    )
-                                }
-                            </Overlay>
+                            <button className="login-btn" onClick={() => props.setButtonPopup(true)}>Pop-up</button>
                         </p>
                     </div>
                 </footer>

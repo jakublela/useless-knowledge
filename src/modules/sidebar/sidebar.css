@@ -25,7 +25,7 @@
 #sidebar-wrapper{
     background: #1A1A1A;
     min-height: 100vh !important;
-    width: 13%;
+    width: 17%;
     margin: 0;
     -webkit-transition: margin .25s ease-out;
     -moz-transition: margin .25s ease-out;
@@ -47,8 +47,11 @@
 
 /* user box settings */
 .user{
-    flex: 50%;
-    padding: 10px;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .user-info{
@@ -59,7 +62,7 @@
 .ooger{
     margin-bottom: auto;
     background: none;
-    margin-bottom: 10px !important;
+    margin-bottom: 16px !important;
 }
 
 .space-between{
@@ -95,16 +98,26 @@ p{
 }
 
 img{
-    max-width: 80px !important;
+    max-width: 40% !important;
+    height: auto !important;
     background: none;
     border-radius: 50%;
 }
 
-.login{
+.login-btn{
     background: none;
     border: none !important;
 }
 
-.login:hover{
+.login-btn:hover{
     color: rgb(122, 115, 104);
+}
+
+.login-popup{
+    position: absolute !important;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 10px;
+    color: antiquewhite;
+    border-radius: 3px !important;
 }
