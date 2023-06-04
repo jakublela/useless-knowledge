@@ -3,9 +3,11 @@ import {Dropdown, DropdownButton, Nav, Overlay, Popover, PopoverBody, Button} fr
 import './sidebar.css';
 import pfp from './default_pfp.jpg';
 import { useNavigate } from 'react-router-dom';
+import Popup from '../Components/Popup.js';
 
 const Sidebar = props => {
     const [show, setShow] = useState(false);
+    const [setButtonPopup] = useState(false);
     const target = useRef(null);
 
     return (
@@ -36,7 +38,7 @@ const Sidebar = props => {
                         <img src={pfp} className="user" alt="pfp"/>
                         <p className="user">
                             Username<br/>
-                            <button className="login-btn" onClick={() => props.setButtonPopup(true)}>Pop-up</button>
+                            <button className="login-btn" onClick={() => setButtonPopup(true)}>Pop-up</button>
                         </p>
                     </div>
                 </footer>

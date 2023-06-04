@@ -6,7 +6,7 @@ function Popup(props) {
     <div>
         <div className="popup">
             <div className="popup-inner">
-                <button type="button" className="close-btn" onClick={() => props.setTrigger(false)}>close</button>
+                <button type="button" className="close-btn" onClick={() => props.setTrigger(false)}>X</button>
                 {props.children}
             </div>
         </div>
@@ -14,4 +14,4 @@ function Popup(props) {
   ) : "";
 }
 
-export default Popup
+export default Popup;

@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Suspense } from 'react';
 import Popup from './modules/Components/Popup.js';
-import {useState} from 'react';
+import { useState } from 'react';
 
 const App = props => {
   const [buttonPopup, setButtonPopup] = useState(false);
