@@ -17,12 +17,8 @@ const App = props => {
           <Sidebar/>
         </div>
         <div id='main-wrapper'>
-            <Main/>
+          <Main/>
         </div>
-        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-          <h1>My poopup</h1>
-          <p>This is a button triggered popup</p>
-        </Popup>
     </Container>
   );
 }

@@ -7,7 +7,7 @@ import Popup from '../Components/Popup.js';
 
 const Sidebar = props => {
     const [show, setShow] = useState(false);
-    const [setButtonPopup] = useState(false);
+    const [buttonPopup, setButtonPopup] = useState(false);
     const target = useRef(null);
 
     return (
@@ -38,8 +38,13 @@ const Sidebar = props => {
                         <img src={pfp} className="user" alt="pfp"/>
                         <p className="user">
                             Username<br/>
-                            <button className="login-btn" onClick={() => setButtonPopup(true)}>Pop-up</button>
+                            <button className="login-pop-btn" onClick={() => setButtonPopup(true)}>Log in</button>
                         </p>
+                        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                            <input type='text' className='user-in' placeholder='Username'/><br/>
+                            <input type='password' className='user-in' placeholder='Password'/><br/>
+                            <button className='login-btn' onClick={() => setButtonPopup(false)}>Log in</button>
+                        </Popup>
                     </div>
                 </footer>
             </nav>
