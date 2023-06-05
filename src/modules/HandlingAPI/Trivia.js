@@ -4,6 +4,8 @@ import { Answer } from './Answer.js';
 export function Trivia({data}) {
     return (<div>
             <h2>{data.question.text}</h2>
+            <span>Categorie: {data.category}</span>
+            <span>Difficulty: {data.difficulty}</span><br/>
             <Answers incorrectAnswers={data.incorrectAnswers} correctAnswer={data.correctAnswer}/>
         </div>)
 }

@@ -1,9 +1,7 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import './Categories.css';
 
 function CategoriesPage() {
-    let { type } = useParams();
     return (
         <div className='buttons'>
             <button type="button" className="button-raid">Beer Trivia</button>

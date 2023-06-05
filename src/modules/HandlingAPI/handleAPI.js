@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
+import { Button } from 'react-bootstrap';
 
-function useFetch(url) {
+function useFetch(url, next) {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
@@ -12,17 +13,23 @@ function useFetch(url) {
             .then(res => setData(res[0]))
             .then(() => setLoading(false))
             .catch(setError);
-    }, [url]);
+    }, [next]);
     console.log("test");
     return { data, loading, error };
 }
 
-export function Fetch({url, renderOnSuccess, 
+export function Fetch({url, renderOnSuccess,
     renderOnLoading = <h1>loading...</h1>,
     renderOnFail = error => (<pre>{JSON.stringify(error, null, 2)}</pre>)}) {
-    const {data, loading, error} = useFetch(url);
+    const [next, setNext] = useState(false);
+    const {data, loading, error} = useFetch(url, next);
 
     if (loading) return renderOnLoading;
     if (error) return renderOnFail(error);
-    if (data) return renderOnSuccess({data});
+    if (data) return (
+        <>
+            {renderOnSuccess({data})}
+            <Button onClick={() => {setNext(!next)}}>Next</Button>
+        </>
+        );
 }
