@@ -9,11 +9,11 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 const App = props => {
   return (
     <Container fluid>
-        <div id="sidebar-wrapper">
+        <div id='sidebar-wrapper'>
           <Sidebar/>
         </div>
         <div id='main-wrapper'>
-            <Main/>
+          <Main/>
         </div>
     </Container>
   );
