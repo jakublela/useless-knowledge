@@ -1,14 +1,10 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Trivia } from '../HandlingAPI/Trivia';
 import { Fetch } from '../HandlingAPI/handleAPI';
 
-function RandomPage() {
-    let { type } = useParams();
-    let url = "https://the-trivia-api.com/v2/questions?" + new URLSearchParams({
-        limit: "1"
-    });
-    
+function RandomPage() { 
+    let url = "https://the-trivia-api.com/v2/questions?" + new URLSearchParams({limit: "1"});
+
     return (
         <div>
             <h1>Quiz</h1>
