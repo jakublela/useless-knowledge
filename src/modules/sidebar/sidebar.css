@@ -162,3 +162,32 @@ img{
 .login-btn:hover{
     background: #350069;
 }
+.logos{
+    background: none !important;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.logo{
+    width: 15% !important;
+    margin: auto;
+    height: auto;
+}
+.smol-Text{
+    font-size: 12px;
+    background: none !important;
+    margin: auto !important;
+    padding: 0;
+}
+
+.smol-btn{
+    border: none !important;
+    background: none !important;
+}
+u{
+    background: none !important;
+}
+b{
+    background: none !important;
+}
