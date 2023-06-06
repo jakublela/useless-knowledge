@@ -15,7 +15,7 @@
 
 .popup-inner{
     position: relative;
-    padding: 32px;
+    padding: 48px 36px;
     width: 100%;
     max-width: 400px;
     background: rgba(0, 0, 0, 0.50);
@@ -32,6 +32,15 @@
 .close-btn{
     border: none !important;
     background: none !important;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  background: none !important;
 }
 
 h1{
