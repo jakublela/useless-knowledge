@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Button } from 'react-bootstrap';
+import '../Main/Main.css';
 
 function useFetch(url, next) {
     const [data, setData] = useState();
@@ -29,7 +30,7 @@ export function Fetch({url, renderOnSuccess,
     if (data) return (
         <>
             {renderOnSuccess({data})}
-            <Button onClick={() => {setNext(!next)}}>Next</Button>
+            <Button className='nextQuiz' onClick={() => {setNext(!next)}}>Gib anotha one</Button>
         </>
         );
 }

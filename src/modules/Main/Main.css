@@ -11,5 +11,22 @@
 
 #main-wrapper * {
     background: none;
-    margin-right: 5% !important;
+}
+
+.main{
+    margin: 30px;
+    display: flex !important;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.nextQuiz {
+    max-width: 400px !important;
+    margin: auto !important;
+}
+
+#correctAnswer, #incorrectAnswer {
+    padding: 10px !important;
+    margin: 5px !important;
 }

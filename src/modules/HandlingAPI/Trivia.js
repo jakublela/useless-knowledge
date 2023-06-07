@@ -1,13 +1,16 @@
 import React from 'react';
 import { Answer } from './Answer.js';
+import '../Main/Main.css';
 
 export function Trivia({data}) {
     return (<div>
-            <h2>{data.question.text}</h2>
-            <span>Categorie: {data.category}</span>
-            <span>Difficulty: {data.difficulty}</span><br/>
-            <Answers incorrectAnswers={data.incorrectAnswers} correctAnswer={data.correctAnswer}/>
-        </div>)
+                <h2>{data.question.text}</h2>
+                <div className='quizInfo'>
+                    <span className='span'>Category: {data.category}</span>
+                    <span className='span'>Difficulty: {data.difficulty}</span>
+                </div>
+                <Answers incorrectAnswers={data.incorrectAnswers} correctAnswer={data.correctAnswer}/>
+            </div>)
 }
 
 function Answers({correctAnswer, incorrectAnswers}) {

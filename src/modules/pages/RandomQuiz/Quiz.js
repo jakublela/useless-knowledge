@@ -14,6 +14,9 @@ function QuizPage() {
         <div className='main'>
             <h1>Quiz</h1>
             <Fetch url={url} renderOnSuccess={Trivia}/>
+            <Fetch url={url} renderOnSuccess={Trivia}/>
+            <Fetch url={url} renderOnSuccess={Trivia}/>
+            <Fetch url={url} renderOnSuccess={Trivia}/>
         </div>
     )
 }

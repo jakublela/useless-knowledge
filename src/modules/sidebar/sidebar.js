@@ -24,7 +24,7 @@ const Sidebar = props => {
                     <MenuButton itemTitle='Categories' className='dropdown'/>
                     <MenuButton itemTitle='Create' className='dropdown'/>
                     <MenuButton itemTitle='Saved' className='dropdown'/>
-                    <MenuButton itemTitle='Loose braincells' className='dropdown'/>
+                    <MenuButton itemTitle='Lose braincells' className='dropdown'/>
                 </div>
                 <footer className="ooger">
                     <hr/>
