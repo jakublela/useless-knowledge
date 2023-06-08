@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import { Nav, Button} from 'react-bootstrap';
 import './sidebar.css';
 import pfp from './default_pfp.jpg';

@@ -1,16 +1,24 @@
 import React from 'react';
-import { Answer } from './Answer.js';
 import '../Main/Main.css';
+import { Button } from 'react-bootstrap';
 
 export function Trivia({data}) {
-    return (<div>
-                <h2>{data.question.text}</h2>
-                <div className='quizInfo'>
-                    <span className='span'>Category: {data.category}</span>
-                    <span className='span'>Difficulty: {data.difficulty}</span>
-                </div>
-                <Answers incorrectAnswers={data.incorrectAnswers} correctAnswer={data.correctAnswer}/>
-            </div>)
+    return (
+        <>{
+            data.map((trivia) => {
+                return (
+                    <div key={trivia.id}>
+                        <h2>{trivia.question.text}</h2>
+                        <div className='quizInfo'>
+                            <p className='span'>Category: {trivia.category} Difficulty: {trivia.difficulty}</p>
+                        </div>
+                        <Answers incorrectAnswers={trivia.incorrectAnswers} correctAnswer={trivia.correctAnswer}/>
+                    </div>
+                )
+            })
+        }</>
+    )
+    
 }
 
 function Answers({correctAnswer, incorrectAnswers}) {
@@ -36,4 +44,9 @@ function shuffle(array) {
     }
   
     return array;
-  }
+}
+
+function Answer({text, correct = false}) {
+    if (correct) return <Button variant='success' id='correctAnswer'><i>{text}</i></Button> 
+    return <Button variant='danger' className='incorrectAnswer'>{text}</Button>
+}
