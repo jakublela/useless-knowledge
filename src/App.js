@@ -19,4 +19,17 @@ const App = props => {
   );
 }
 
+function Data() {
+  const userdata = [{name: '', email: '', password: ''}];
+  return (
+    <div>
+      {userdata.map(e =>
+        <div>
+          {e.name}{e.email}{e.password}
+        </div>  
+      )}
+    </div>
+  );
+}
+
 export default App;
