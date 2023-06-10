@@ -16,17 +16,27 @@
 .main{
     margin: 30px;
     display: flex !important;
+    background: #261f29 !important;
+    border-radius: 40px !important;
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    padding: 20px !important;
+    height: 100% !important;
 }
 
 .nextQuiz {
     max-width: 400px !important;
     margin: auto !important;
+    background: #2c2c2c !important;
 }
 
-#correctAnswer, .incorrectAnswer {
+.nextQuiz:hover{
+    background: #2c2c2c !important;
+}
+
+#correctAnswer, #incorrectAnswer {
     padding: 10px !important;
     margin: 5px !important;
+    background: #2c2c2c !important;
 }

@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 
 export function Trivia({data}) {
     return (
-        <>{
+        <div className='quizPost'>{
             data.map((trivia) => {
                 return (
                     <div key={trivia.id}>
@@ -16,7 +16,7 @@ export function Trivia({data}) {
                     </div>
                 )
             })
-        }</>
+        }</div>
     )
     
 }
@@ -48,5 +48,5 @@ function shuffle(array) {
 
 function Answer({text, correct = false}) {
     if (correct) return <Button variant='success' id='correctAnswer'><i>{text}</i></Button> 
-    return <Button variant='danger' className='incorrectAnswer'>{text}</Button>
+    return <Button variant='danger' id='incorrectAnswer'>{text}</Button>
 }
