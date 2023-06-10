@@ -6,7 +6,7 @@ export default function Error404() {
         <div className='Error404'>
             <h1>404</h1>
             <p>
-                <h2>What does it mean?</h2><br/>                
+                <h2>What does it mean?</h2><br/>
                 The page doesn't exist<br/>
                 <h2>Why did this happen</h2>
                 The page wasn't found<br/>
