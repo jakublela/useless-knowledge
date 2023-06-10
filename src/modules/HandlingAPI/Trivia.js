@@ -13,6 +13,7 @@ export function Trivia({data}) {
                             <p className='span'>Category: {trivia.category} Difficulty: {trivia.difficulty}</p>
                         </div>
                         <Answers incorrectAnswers={trivia.incorrectAnswers} correctAnswer={trivia.correctAnswer}/>
+                        <hr className='quizSeparator'/>
                     </div>
                 )
             })

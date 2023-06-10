@@ -25,10 +25,12 @@
     height: 100% !important;
 }
 
+/* Random Quiz ------------------------------------- */
 .nextQuiz {
     max-width: 400px !important;
     margin: auto !important;
-    background: #2c2c2c !important;
+    background: #1A1A1A !important;
+    border: 2px solid #2c2c2c !important;
 }
 
 .nextQuiz:hover{
@@ -38,5 +40,40 @@
 #correctAnswer, #incorrectAnswer {
     padding: 10px !important;
     margin: 5px !important;
+    background: #1A1A1A !important;
+    border: 2px solid #2c2c2c !important;
+}
+
+#correctAnswer:hover, #incorrectAnswer:hover {
     background: #2c2c2c !important;
+    border: #400081 solid 2px !important;
+}
+
+
+/* Quiz Creation Form ------------------------------ */
+.createQuiz {
+    margin: 30px;
+    width: 90%;
+    display: flex !important;
+    background: #261f29 !important;
+    border-radius: 40px !important;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px !important;
+    height: 100% !important;
+}
+
+.createQuizOpt {
+    padding: 10px !important;
+    margin: 5px auto !important;
+    border: #2c2c2c solid 2px !important;
+    background: #1A1A1A !important;
+    border-radius: 15px;
+    min-width: 50px;
+    width: 90%;
+}
+
+option {
+    background: black !important;
 }
