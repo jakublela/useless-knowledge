@@ -77,3 +77,10 @@
 option {
     background: black !important;
 }
+
+.Error404 {
+    display: flex !important;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
