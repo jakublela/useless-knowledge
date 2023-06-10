@@ -72,8 +72,6 @@ const Sidebar = props => {
     );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('loginForm'));
-
 function MenuButton({itemTitle}) {
     const navigate = useNavigate();
 

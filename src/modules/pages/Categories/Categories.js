@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import './Categories.css';
-import { FetchTags } from '../../HandlingAPI/handleAPI';
+import { FetchTags, formatText } from '../../HandlingAPI/handleAPI';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
 
 export default function CategoriesPage() {
-    let url = "https://the-trivia-api.com/v2/tags";
+    let url = "https://the-trivia-api.com/v2/totals-per-tag";
     
     return (
         <div className='main'>
@@ -25,7 +25,7 @@ export function Categories({tags}) {
     return (
         <div id='categories'>
             {tags.map((tag) => {
-                return <Button onClick={() => navigate(`/trivia/${tag}`)} key={tag}>{tag}</Button>
+                return <Button onClick={() => navigate(`/categories/${tag}`)} key={tag}>{formatText(tag)}</Button>
             })}
         </div>
     );
