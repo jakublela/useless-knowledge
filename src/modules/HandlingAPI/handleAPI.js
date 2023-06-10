@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useCallback, useMemo} from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactPaginate from 'react-paginate';
 import { Button } from 'react-bootstrap';
 import '../Main/Main.css';
+import { Categories } from '../pages/Categories/Categories';
 
-function useFetch(url, next) {
+function useFetch(url, next = true) {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
@@ -19,12 +21,12 @@ function useFetch(url, next) {
     return { data, loading, error };
 }
 
-export function Fetch({url, renderOnSuccess,
+export function FetchTrivia({url, renderOnSuccess,
     renderOnLoading = <h1>loading...</h1>,
     renderOnFail = error => (<pre>{JSON.stringify(error, null, 2)}</pre>)}) {
     const [next, setNext] = useState(false);
     const {data, loading, error} = useFetch(url, next);
-
+    
     if (loading) return renderOnLoading;
     if (error) return renderOnFail(error);
     if (data) return (
@@ -35,20 +37,47 @@ export function Fetch({url, renderOnSuccess,
         );
 }
 
-export function useIterator(items = [], initialValue = 0) {
-    const [i, setIndex] = useState(initialValue);
+export function FetchTags({url, renderOnSuccess,
+    renderOnLoading = <h1>loading...</h1>,
+    renderOnFail = error => (<pre>{JSON.stringify(error, null, 2)}</pre>)}) {
+    const {data, loading, error} = useFetch(url);
+
+    const [curTags, setCurTags] = useState(null);
+    const [pageCount, setPageCount] = useState(0);
+    const [tagsOffset, setTagsOffset] = useState(0);
+    const tagsPerPage = 100;
     
-    const prev = useCallback(() => {
-        if (i === 0) return setIndex(items.length - 1);
-        setIndex(i - 1);
-    }, [i]);
+    useEffect(() => {
+        if(!data) return
+        const endOffset = tagsOffset + tagsPerPage;
+        setCurTags(data.slice(tagsOffset, endOffset));
+        setPageCount(Math.ceil(data.length/tagsPerPage));
+    }, [tagsOffset, tagsPerPage, data])
     
-    const next = useCallback(() => {
-        if (i === items.length - 1) return setIndex(0);
-        setIndex(i + 1);
-    }, [i]);
-    
-    const item = useMemo(() => items[i], [i]);
-    
-    return [item || items[0], prev, next, i];
+    const handlePageChange = (event) => {
+        const newOffset = (event.selected * tagsPerPage) % data.length;
+        setTagsOffset(newOffset);
+    };  
+
+
+    if (loading) return renderOnLoading;
+    if (error) return renderOnFail(error);
+    console.log(curTags);
+    if (data) return (
+        <>
+            <Categories tags={curTags}/>
+            <ReactPaginate
+                onPageChange={handlePageChange}
+                pageCount={pageCount}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={1}
+                previousLabel={'Prev'}
+                nextLabel={'Next'}
+                containerClassName={'pageManu'}
+                pageLinkClassName={'page-number'}
+                previousLinkClassName={'page-number'}
+                nextLinkClassName={'page-number'}
+                activeLinkClassName={'active'}/>
+        </>
+        );
 }

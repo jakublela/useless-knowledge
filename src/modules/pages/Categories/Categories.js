@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Categories.css';
-import { Fetch, useIterator} from '../../HandlingAPI/handleAPI';
+import { FetchTags } from '../../HandlingAPI/handleAPI';
 import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 
 export default function CategoriesPage() {
     let url = "https://the-trivia-api.com/v2/tags";
@@ -9,45 +10,19 @@ export default function CategoriesPage() {
     return (
         <div className='main'>
             <h1>Quiz</h1>
-            <Fetch url={url} renderOnSuccess={Categories}/>
+            <FetchTags url={url} renderOnSuccess={Categories}/> 
         </div>
     )
 }
 
-function Categories({data}) {
-    const [tags, previous, next, i] = useIterator(groupItems(data, 100))
+export function Categories({tags}) {
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        if (!tags) return;
-    }, [tags]);
-        
     return (
-        <>
+        <div id='categories'>
             {tags.map((tag) => {
-                return (
-                    <Category name={tag}/>
-                )
+                return <Button onClick={() => navigate(`/trivia/${tag}`)} key={tag}>{tag}</Button>
             })}
-            <Button onClick={previous}>&lt;</Button>
-            <p>{i}</p>
-            <Button onClick={next}>&gt;</Button>
-        </>
+        </div>
     );
-}
-
-function Category({name}) {
-    return (
-        <Button>{name}</Button>
-    )
-}
-
-function groupItems(array, perGroup) {
-    return array.reduce((result, item, i) => {
-        const groupIndex = Math.floor(i/perGroup);
-
-        if (!result[groupIndex]) result[groupIndex] = [];
-        result[groupIndex].push(item);
-        
-        return result;
-    }, [])
 }

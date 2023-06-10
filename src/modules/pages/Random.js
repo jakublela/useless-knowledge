@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trivia } from '../HandlingAPI/Trivia';
-import { Fetch } from '../HandlingAPI/handleAPI';
+import { FetchTrivia } from '../HandlingAPI/handleAPI';
 import '../Main/Main.css';
 
 function RandomPage() { 
@@ -9,7 +9,7 @@ function RandomPage() {
     return (
         <div className='main'>
             <h1>Quiz</h1>
-            <Fetch url={url} renderOnSuccess={Trivia} />
+            <FetchTrivia url={url} renderOnSuccess={Trivia} />
         </div>
     )
 }
