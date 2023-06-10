@@ -39,11 +39,11 @@ const Sidebar = props => {
                             <input type='password' className='user-in' placeholder='Password'/><br/>
                             <button className='login-btn' onClick={() => setButtonPopup1(false)}>Log in</button><br/>
                             <div className="logos">
-                                <img src={Gugel} className='logo' />
-                                <img src={Twitter} className='logo' />
-                                <img src={Majkrosoft} className='logo' />
-                                <img src={iOS} className='logo' />
-                                <img src={FB} className='logo' />
+                                <img src={Gugel} className='logo' alt='google'/>
+                                <img src={Twitter} className='logo' alt='twitter'/>
+                                <img src={Majkrosoft} className='logo' alt='microsoft'/>
+                                <img src={iOS} className='logo' alt='apple'/>
+                                <img src={FB} className='logo' alt='facebook'/>
                             </div>
                             <p className='smol-Text'>don’t have an account? you can register<button className='smol-btn' onClick={() => setButtonPopup2(true)}><u><b>here</b></u></button></p>
                             <Popup trigger={buttonPopup2} setTrigger={setButtonPopup2}>
@@ -62,7 +62,7 @@ const Sidebar = props => {
 };
 
 function MenuButton({itemTitle}) {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     return (
         <Nav.Item>
