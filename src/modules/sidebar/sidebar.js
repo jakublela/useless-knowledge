@@ -12,7 +12,8 @@ import Majkrosoft from '../images/Microsoft.svg';
 import Twitter from '../images/Twitter.svg';
 
 const Sidebar = props => {
-    const [buttonPopup, setButtonPopup] = useState(false);
+    const [buttonPopup1, setButtonPopup1] = useState(false);
+    const [buttonPopup2, setButtonPopup2] = useState(false);
 
     return (
         <Nav className="sidebar-sticky">
@@ -32,13 +33,10 @@ const Sidebar = props => {
                         <img src={pfp} className="user" alt="pfp"/>
                         <p className="user">
                             Username<br/>
-                            <button className="login-pop-btn" onClick={() => setButtonPopup(true)}>Log in</button>
+                            <button className="login-pop-btn" onClick={() => setButtonPopup1(true)}>Log in</button>
                         </p>
-                        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                        <Popup trigger={buttonPopup1} setTrigger={setButtonPopup1}>
                             <LoginPopup/>
-                            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
-                                <RegisterPopup/>
-                            </Popup>
                         </Popup>
                     </div>
                 </footer>
@@ -49,18 +47,26 @@ const Sidebar = props => {
 
 function LoginPopup() {
     const [buttonPopup, setButtonPopup] = useState(false);
-    const [name, setName] = useState("");
+    const [buttonPopup2, setButtonPopup2] = useState(false);
+    
+    const [inputs, setInputs] = useState({});
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({...values, [name]: value}))
+      }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert('The name you entered was: ${name}')
+        alert(`Username: ${inputs.username}, Password: ${inputs.password}`);
     }
 
     return(
         <>
-        <form className='form' id='loginForm' onSubmit={handleSubmit}>
-            <input type='text' value={name} onChange={(e) => setName(e.target.value)} className='user-in' placeholder='Username/E-mail'/><br/>
-            <input type='password' className='user-in' placeholder='Password'/><br/>
+        <form className='form' onSubmit={handleSubmit}>
+            <input type='text' name='username' value={inputs.username} onChange={handleChange} className='user-in' placeholder='Username/E-mail'/><br/>
+            <input type='password' name='password' value={inputs.password} onChange={handleChange} className='user-in' placeholder='Password'/><br/>
             <button type='submit' className='login-btn' onClick={() => setButtonPopup(false)}>Log in</button><br/>
         </form>
         <div className="logos">
@@ -70,27 +76,39 @@ function LoginPopup() {
             <img src={iOS} className='logo' alt='apple'/>
             <img src={FB} className='logo' alt='facebook'/>
         </div>
-        <p className='smol-Text'>don’t have an account? you can register<button className='smol-btn' onClick={() => setButtonPopup(true)}><u><b>here</b></u></button></p>
+        <p className='smol-Text'>don’t have an account? you can register<button className='smol-btn' onClick={() => setButtonPopup2(true)}><u><b>here</b></u></button></p>
+        <Popup trigger={buttonPopup2} setTrigger={setButtonPopup2}>
+            <RegisterPopup/>
+        </Popup>
         </>
     );
 }
 
 function RegisterPopup() {
     const [buttonPopup, setButtonPopup] = useState(false);
-    const [name, setName] = useState("");
+    const [inputs, setInputs] = useState({});
+
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setInputs(values => ({...values, [name]: value}))
+      }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert('The name you entered was: ${name}')
+        if(${password} == ${passwordConfirm}){
+
+        }
+        alert(JSON.stringify(inputs));
     }
 
     return(
         <>
-        <form className='form'>
-            <input type='text' className='user-in' placeholder='Username'/><br/>
-            <input type='text' className='user-in' placeholder='E-mail'/><br/>
-            <input type='text' className='user-in' placeholder='Password'/><br/>
-            <input type='password' className='user-in' placeholder='Confirm Password'/><br/>
+        <form className='form' onSubmit={handleSubmit}>
+            <input type='text' name='username' value={inputs.username} onChange={handleChange} className='user-in' placeholder='Username'/><br/>
+            <input type='text' name='email' value={inputs.email} onChange={handleChange} className='user-in' placeholder='E-mail'/><br/>
+            <input type='password' name='password' value={inputs.password} onChange={handleChange} className='user-in' placeholder='Password'/><br/>
+            <input type='password' name='passwordConfirm' value={inputs.passwordConfirm} onChange={handleChange} className='user-in' placeholder='Confirm Password'/><br/>
             <button type='submit' className='login-btn' onClick={() => setButtonPopup(false)}>Register</button><br/>
         </form>
         </>
