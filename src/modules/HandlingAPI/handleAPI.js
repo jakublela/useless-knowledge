@@ -13,7 +13,7 @@ function useFetch(url, next = true) {
         if(!url) return
         fetch(url)
             .then(res => res.json())
-            .then(res => setData(res))
+            .then(setData)
             .then(() => setLoading(false))
             .catch(setError);
     }, [next, url]);
@@ -37,11 +37,11 @@ export function FetchTrivia({url, renderOnSuccess,
         );
 }
 
-export function FetchTags({url, renderOnSuccess,
+export function FetchTags({url,
     renderOnLoading = <h1>loading...</h1>,
     renderOnFail = error => (<pre>{JSON.stringify(error, null, 2)}</pre>)}) {
     const {data, loading, error} = useFetch(url);
-
+    
     const [curTags, setCurTags] = useState(null);
     const [pageCount, setPageCount] = useState(0);
     const [tagsOffset, setTagsOffset] = useState(0);
@@ -49,20 +49,19 @@ export function FetchTags({url, renderOnSuccess,
     
     useEffect(() => {
         if(!data) return
+        console.log(data);
         const endOffset = tagsOffset + tagsPerPage;
         setCurTags(data.slice(tagsOffset, endOffset));
         setPageCount(Math.ceil(data.length/tagsPerPage));
     }, [tagsOffset, tagsPerPage, data])
-    
+
     const handlePageChange = (event) => {
         const newOffset = (event.selected * tagsPerPage) % data.length;
         setTagsOffset(newOffset);
     };  
 
-
-    if (loading) return renderOnLoading;
+    if (loading || !curTags) return renderOnLoading;
     if (error) return renderOnFail(error);
-    console.log(curTags);
     if (data) return (
         <>
             <Categories tags={curTags}/>

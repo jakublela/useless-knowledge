@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Categories.css';
 import { FetchTags } from '../../HandlingAPI/handleAPI';
 import { Button } from 'react-bootstrap';
@@ -17,6 +17,10 @@ export default function CategoriesPage() {
 
 export function Categories({tags}) {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!tags) return
+    }, [tags])
 
     return (
         <div id='categories'>

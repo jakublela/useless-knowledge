@@ -2,7 +2,7 @@ import React from 'react';
 import './Main.css';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/Home.js';
-import RandomPage from '../pages/Random';
+import TriviaPage from '../pages/TriviaPage';
 import CategoriesPage from '../pages/Categories/Categories.js';
 import CreatePage from '../pages/Create.js';
 import SavedPage from '../pages/Saved.js';
@@ -16,11 +16,15 @@ function Main() {
                 />
             <Route 
                 path='/random'
-                element={<RandomPage/>}
+                element={<TriviaPage/>}
                 />
             <Route 
                 path='/categories'
                 element={<CategoriesPage/>}
+                />
+            <Route
+                path='/categories/:tag'
+                element={<TriviaPage/>}
                 />
             <Route 
                 path='/create'
@@ -30,6 +34,9 @@ function Main() {
                 path='/saved'
                 element={<SavedPage/>}
                 />
+            <Route
+                path='*'
+                element={<HomePage/>}/>
         </Routes>
     );
 }
