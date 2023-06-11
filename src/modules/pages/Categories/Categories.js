@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 
 export default function CategoriesPage() {
     let url = "https://the-trivia-api.com/v2/totals-per-tag";
-    
+
     return (
         <div className='main'>
             <h1 className='category-header'>Categories</h1>

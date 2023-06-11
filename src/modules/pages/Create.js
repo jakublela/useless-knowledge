@@ -28,7 +28,7 @@ function QuizForm() {
 
     return(
         <form className='createQuiz' onSubmit={handleSubmit}>
-            <h1>Create a new Quiz</h1><br/>
+            <h2>Create a new Quiz</h2><br/>
             <input type="text" name='Question' value={inputs.question} onChange={handleChange} placeholder="¿Qué?" className='createQuizOpt'/><br/>
             <input type="text" name='Category' value={inputs.category} onChange={handleChange} placeholder="Category" className='createQuizOpt'/><br/>
             <input type="text" name='Tag' value={inputs.tag} onChange={handleChange} placeholder="Tag" className='createQuizOpt'/><br/>
