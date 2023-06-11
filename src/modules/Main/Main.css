@@ -49,6 +49,11 @@
     border: #400081 solid 2px !important;
 }
 
+.quizSeparator {
+    border: solid 1px #6e6e6e !important;
+    border-radius: 5px !important;
+    width: 100% !important;
+}
 
 /* Quiz Creation Form ------------------------------ */
 .createQuiz {

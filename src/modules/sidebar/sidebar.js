@@ -96,9 +96,7 @@ function RegisterPopup() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if(${password} == ${passwordConfirm}){
-
-        }
+        
         alert(JSON.stringify(inputs));
     }
 

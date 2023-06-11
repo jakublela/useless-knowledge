@@ -26,7 +26,7 @@ export function FetchTrivia({url, renderOnSuccess,
     renderOnFail = error => (<pre>{JSON.stringify(error, null, 2)}</pre>)}) {
     const [next, setNext] = useState(false);
     const {data, loading, error} = useFetch(url, next);
-    
+
     if (loading) return renderOnLoading;
     if (error) return renderOnFail(error);
     if (data) return (
@@ -49,14 +49,13 @@ export function FetchTags({url,
     
     useEffect(() => {
         if(!data) return
-        console.log(data);
-        const endOffset = tagsOffset + tagsPerPage;
-        setCurTags(data.slice(tagsOffset, endOffset));
-        setPageCount(Math.ceil(data.length/tagsPerPage));
+        let endOffset = tagsOffset + tagsPerPage;
+        setCurTags(Object.keys(data).slice(tagsOffset, endOffset));
+        setPageCount(Math.ceil(Object.keys(data).length/tagsPerPage));
     }, [tagsOffset, tagsPerPage, data])
 
     const handlePageChange = (event) => {
-        const newOffset = (event.selected * tagsPerPage) % data.length;
+        const newOffset = (event.selected * tagsPerPage) % Object.keys(data).length;
         setTagsOffset(newOffset);
     };  
 
@@ -80,3 +79,5 @@ export function FetchTags({url,
         </>
         );
 }
+
+export function formatText(text) {return text.charAt(0).toUpperCase() + text.replaceAll("_", " ").slice(1)}
