@@ -25,6 +25,7 @@
 #sidebar-wrapper{
     background: #1A1A1A;
     min-height: 100vh !important;
+    min-width: 200px;
     width: 17%;
     margin: 0;
     -webkit-transition: margin .25s ease-out;
@@ -41,8 +42,13 @@
 .nav-item{
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: fit-content;
     background: none;
+    margin: auto;
+}
+
+.dropdown-button{
+    width: 150px !important;
 }
 
 /* user box settings */
@@ -162,6 +168,7 @@ img{
 .login-btn:hover{
     background: #350069;
 }
+
 .logos{
     background: none !important;
     display: flex;

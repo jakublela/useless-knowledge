@@ -9,7 +9,7 @@ export default function CategoriesPage() {
     
     return (
         <div className='main'>
-            <h1>Quiz</h1>
+            <h1 className='category-header'>Categories</h1>
             <FetchTags url={url} renderOnSuccess={Categories}/> 
         </div>
     )

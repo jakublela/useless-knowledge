@@ -71,7 +71,7 @@ export function FetchTags({url,
                 marginPagesDisplayed={1}
                 previousLabel={'Prev'}
                 nextLabel={'Next'}
-                containerClassName={'pageManu'}
+                containerClassName={'pageMenu'}
                 pageLinkClassName={'page-number'}
                 previousLinkClassName={'page-number'}
                 nextLinkClassName={'page-number'}

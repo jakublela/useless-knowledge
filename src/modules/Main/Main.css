@@ -13,7 +13,20 @@
     background: none;
 }
 
-.main{
+.main {
+    margin: 30px;
+    display: flex !important;
+    background: #261f29 !important;
+    border-radius: 40px !important;
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px !important;
+    height: 100% !important;
+}
+
+.home-main, .Error404 {
     margin: 30px;
     display: flex !important;
     background: #261f29 !important;
@@ -23,6 +36,13 @@
     text-align: center;
     padding: 20px !important;
     height: 100% !important;
+    width: 80%;
+}
+
+.home-faq {
+    list-style-type: none;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* Random Quiz ------------------------------------- */
@@ -88,4 +108,13 @@ option {
     justify-content: center;
     flex-direction: column;
     text-align: center;
+}
+
+.fakeBugReport{
+    border: none !important;
+}
+
+#Rick{
+    height: 560px;
+    margin: 10px !important;
 }

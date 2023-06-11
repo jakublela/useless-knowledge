@@ -1,0 +1,30 @@
+.btn{
+    margin: 5px !important;
+    background: #1A1A1A !important;
+    border: 2px solid #2c2c2c !important;
+}
+
+.pageMenu{
+    margin: 10px auto 0 auto !important;
+    padding: 0 !important;
+    list-style-type: none !important;
+    display: flex !important;
+    width: min-content;
+}
+
+.page-number {
+    margin: 5px !important;
+    text-decoration: none !important;
+}
+
+.page-number:hover {
+    color: rgb(179, 167, 152) !important;
+}
+
+.active {
+    color: rgb(255, 222, 180) !important;
+}
+
+.category-header {
+    margin: 0 auto 20px auto !important;
+}

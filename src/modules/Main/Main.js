@@ -6,6 +6,7 @@ import TriviaPage from '../pages/TriviaPage';
 import CategoriesPage from '../pages/Categories/Categories.js';
 import CreatePage from '../pages/Create.js';
 import SavedPage from '../pages/Saved.js';
+import Error404 from '../pages/404.js';
 
 function Main() {
     return (
@@ -36,7 +37,7 @@ function Main() {
                 />
             <Route
                 path='*'
-                element={<HomePage/>}/>
+                element={<Error404/>}/>
         </Routes>
     );
 }
