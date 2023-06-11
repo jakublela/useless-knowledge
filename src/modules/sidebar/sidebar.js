@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
-import { Nav, Button} from 'react-bootstrap';
+import React, { useState, useEffect, useRef } from 'react';
+import { Nav, Button } from 'react-bootstrap';
 import './sidebar.css';
 import pfp from './default_pfp.jpg';
 import { useNavigate } from 'react-router-dom';
-import ReactDOM from 'react-dom';
 import Popup from '../Components/Popup.js';
 import FB from '../images/Facebook.svg';
 import Gugel from '../images/Google.svg';
@@ -12,8 +11,7 @@ import Majkrosoft from '../images/Microsoft.svg';
 import Twitter from '../images/Twitter.svg';
 
 const Sidebar = props => {
-    const [buttonPopup1, setButtonPopup1] = useState(false);
-    const [buttonPopup2, setButtonPopup2] = useState(false);
+    const [buttonPopup, setButtonPopup] = useState(false);
 
     return (
         <Nav className="sidebar-sticky">
@@ -33,9 +31,9 @@ const Sidebar = props => {
                         <img src={pfp} className="user" alt="pfp"/>
                         <p className="user">
                             Username<br/>
-                            <button className="login-pop-btn" onClick={() => setButtonPopup1(true)}>Log in</button>
+                            <button className="login-pop-btn" onClick={() => setButtonPopup(true)}>Log in</button>
                         </p>
-                        <Popup trigger={buttonPopup1} setTrigger={setButtonPopup1}>
+                        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
                             <LoginPopup/>
                         </Popup>
                     </div>
@@ -48,7 +46,7 @@ const Sidebar = props => {
 function LoginPopup() {
     const [buttonPopup, setButtonPopup] = useState(false);
     const [buttonPopup2, setButtonPopup2] = useState(false);
-    
+
     const [inputs, setInputs] = useState({});
 
     const handleChange = (event) => {
@@ -92,12 +90,19 @@ function RegisterPopup() {
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values => ({...values, [name]: value}))
-      }
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
-        alert(JSON.stringify(inputs));
+        const password = inputs.password, passwordConfirm = inputs.passwordConfirm;
+        console.log(password === passwordConfirm);
+        if(password.toString() === passwordConfirm.toString()) {
+            alert(JSON.stringify(inputs));
+        }else{
+            document.getElementsByClassName('form').
+            alert('Passwords do not match');
+        }
+        alert(`Username: ${inputs.username}, Email: ${inputs.email}, Password: ${inputs.password}, Confirm Password: ${inputs.passwordConfirm}`);
     }
 
     return(
