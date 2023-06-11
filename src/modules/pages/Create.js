@@ -20,7 +20,10 @@ function QuizForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
+        const question = inputs.question, category = inputs.category, tag = inputs.tag;
+        const correctAns = inputs.corrAns, incorrectAns1 = inputs.incorrAns1;
+        const incorrectAns2 = inputs.incorrAns2, incorrectAns3 = inputs.incorrAns3;
+        alert(JSON.stringify(inputs));
     }
 
     return(
@@ -29,8 +32,8 @@ function QuizForm() {
             <input type="text" name='Question' value={inputs.question} onChange={handleChange} placeholder="¿Qué?" className='createQuizOpt'/><br/>
             <input type="text" name='Category' value={inputs.category} onChange={handleChange} placeholder="Category" className='createQuizOpt'/><br/>
             <input type="text" name='Tag' value={inputs.tag} onChange={handleChange} placeholder="Tag" className='createQuizOpt'/><br/>
-            <select name="Difficulty" className='createQuizOpt'>
-                <option value="Difficulty" hidden>Difficulty</option>
+            <select name="Difficulty" id='dropdown' onSubmit={handleSubmit} className='createQuizOpt'>
+                <option hidden>Difficulty</option>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>

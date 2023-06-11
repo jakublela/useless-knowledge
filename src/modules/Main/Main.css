@@ -48,6 +48,7 @@
 /* Random Quiz ------------------------------------- */
 .nextQuiz {
     max-width: 400px !important;
+    width: fit-content !important;
     margin: auto !important;
     background: #1A1A1A !important;
     border: 2px solid #2c2c2c !important;
@@ -96,7 +97,11 @@
     background: #1A1A1A !important;
     border-radius: 15px;
     min-width: 50px;
-    width: 90%;
+    width: 70%;
+}
+
+button.createQuizOpt {
+    width: 40%;
 }
 
 option {
