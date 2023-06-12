@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Trivia } from '../HandlingAPI/Trivia';
+import { Quiz } from '../HandlingAPI/Quiz.js';
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 
@@ -36,7 +36,7 @@ function SavedPage() {
     return (
         <>
             <h2>Saves quizzes</h2>
-            <Trivia data={curQuizzes} isSavable={false}/>
+            <Quiz data={curQuizzes} isSavable={false}/>
             <ReactPaginate
                 onPageChange={handlePageChange}
                 pageCount={pageCount}
