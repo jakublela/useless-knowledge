@@ -19,12 +19,12 @@ const Sidebar = props => {
                 <h4>✨Useless✨<br/>✨Knowledge✨</h4>
                 <hr/>
                 <div className='navigation'>
-                    <MenuButton itemTitle='Random Quizes' className='dropdown'/>
-                    <MenuButton itemTitle='Categories' className='dropdown'/>
-                    <MenuButton itemTitle='Tags' className='dropdown'/>
-                    <MenuButton itemTitle='Create Quiz' className='dropdown'/>
-                    <MenuButton itemTitle='Saved Quizes' className='dropdown'/>
-                    <MenuButton itemTitle='404' className='dropdown'/>
+                    <MenuButton pageName='random' itemTitle='Random Quizes' className='dropdown'/>
+                    <MenuButton pageName='categories' itemTitle='Categories' className='dropdown'/>
+                    <MenuButton pageName='tags' itemTitle='Tags' className='dropdown'/>
+                    <MenuButton pageName='create' itemTitle='Create Quiz' className='dropdown'/>
+                    <MenuButton pageName='saved' itemTitle='Saved Quizes' className='dropdown'/>
+                    <MenuButton pageName='FakeBugReport' itemTitle='404' className='dropdown'/>
                 </div>
                 <footer className="ooger">
                     <hr/>
@@ -119,7 +119,7 @@ function RegisterPopup() {
     );
 }
 
-function MenuButton({itemTitle}) {
+function MenuButton({itemTitle, pageName}) {
     const navigate = useNavigate();
 
     return (
@@ -127,7 +127,7 @@ function MenuButton({itemTitle}) {
             <Button 
                 variant='secondary'
                 className='dropdown-button'
-                onClick={() => navigate(`/${itemTitle.toLowerCase()}`)}>
+                onClick={() => navigate(`/${pageName}`)}>
                     {itemTitle} 
                 </Button>
         </Nav.Item>

@@ -3,7 +3,6 @@ import '../css/Main.css';
 import '../css/trivia.css';
 import { Button } from 'react-bootstrap';
 import { formatText } from './handleAPI';
-import { hover } from '@testing-library/user-event/dist/hover';
 
 export function Trivia({data}) {
     return (
@@ -15,7 +14,7 @@ export function Trivia({data}) {
 
                 return (
                     <div key={trivia.id}>
-                        <h2>{trivia.question.text}</h2>
+                        <h5>{trivia.question.text}</h5>
                         {answers}
                         <p className='quizInfo'>
                             Category: {formatText(trivia.category)} Difficulty: {trivia.difficulty} <br/>
