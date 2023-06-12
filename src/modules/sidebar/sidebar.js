@@ -16,14 +16,15 @@ const Sidebar = props => {
     return (
         <Nav className="sidebar-sticky">
             <nav className="sidebar">
-                <p>✨Useless✨<br/>✨Knowledge✨</p>
+                <h4>✨Useless✨<br/>✨Knowledge✨</h4>
                 <hr/>
                 <div className='navigation'>
                     <MenuButton itemTitle='Random' className='dropdown'/>
                     <MenuButton itemTitle='Categories' className='dropdown'/>
+                    <MenuButton itemTitle='Tags' className='dropdown'/>
                     <MenuButton itemTitle='Create' className='dropdown'/>
                     <MenuButton itemTitle='Saved' className='dropdown'/>
-                    <MenuButton itemTitle='Lose braincells' className='dropdown'/>
+                    <MenuButton itemTitle='404' className='dropdown'/>
                 </div>
                 <footer className="ooger">
                     <hr/>

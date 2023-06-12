@@ -13,7 +13,7 @@ export default function TriviaPage() {
     console.log(url.href);
     return (
         <div className='main'>
-            <h1>Quiz</h1>
+            <h2>Quiz</h2>
             <FetchTrivia url={url.href} renderOnSuccess={Trivia} />
         </div>
     )

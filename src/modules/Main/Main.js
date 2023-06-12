@@ -1,39 +1,44 @@
 import React from 'react';
 import './Main.css';
 import { Routes, Route } from 'react-router-dom';
-import HomePage from '../pages/Home.js';
-import TriviaPage from '../pages/TriviaPage';
-import CategoriesPage from '../pages/Categories/Categories.js';
-import CreatePage from '../pages/Create.js';
-import SavedPage from '../pages/Saved.js';
+import Home from '../pages/Home.js';
+import Quizes from '../pages/TriviaPage';
+import Tags from '../pages/Tags/Tags.js';
+import Create from '../pages/Create.js';
+import Saved from '../pages/Saved.js';
 import Error404 from '../pages/404.js';
+import Categories from '../pages/Categories/Categories';
 
 function Main() {
     return (
         <Routes>
             <Route 
                 path='/'
-                element={<HomePage/>}
+                element={<Home/>}
                 />
             <Route 
                 path='/random'
-                element={<TriviaPage/>}
+                element={<Quizes/>}
+                />
+            <Route 
+                path='/tags'
+                element={<Tags/>}
                 />
             <Route 
                 path='/categories'
-                element={<CategoriesPage/>}
+                element={<Categories/>}
                 />
             <Route
                 path='/categories/:tag'
-                element={<TriviaPage/>}
+                element={<Quizes/>}
                 />
             <Route 
                 path='/create'
-                element={<CreatePage/>}
+                element={<Create/>}
                 />
             <Route 
                 path='/saved'
-                element={<SavedPage/>}
+                element={<Saved/>}
                 />
             <Route
                 path='*'

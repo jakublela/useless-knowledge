@@ -9,7 +9,7 @@ export function Trivia({data}) {
             data.map((trivia) => {
                 return (
                     <div key={trivia.id}>
-                        <h2>{trivia.question.text}</h2>
+                        <h5>{trivia.question.text}</h5>
                         <Answers incorrectAnswers={trivia.incorrectAnswers} correctAnswer={trivia.correctAnswer}/>
                         <p className='quizInfo'>
                             Category: {formatText(trivia.category)} Difficulty: {trivia.difficulty} <br/>

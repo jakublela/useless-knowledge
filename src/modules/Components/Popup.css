@@ -1,4 +1,4 @@
-.popup{
+.popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,12 +13,12 @@
     z-index: 30;
 }
 
-.popup-inner{
+.popup-inner {
     position: relative;
     padding: 48px 36px;
     width: 100%;
     max-width: 400px;
-    background: rgba(0, 0, 0, 0.50);
+    background: rgb(8, 6, 9);
     border-radius: 35px;
     
 }
@@ -29,7 +29,7 @@
     right: 16px;
 }
 
-.close-btn{
+.close-btn {
     border: none !important;
     background: none !important;
 }
@@ -43,11 +43,11 @@
   background: none !important;
 }
 
-h1{
+h1 {
     background: none;
 }
 
-strong{
+strong {
     background: none;
     font-size: 20px;
 }

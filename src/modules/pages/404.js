@@ -9,7 +9,7 @@ export default function Error404() {
 
     return(
         <div className='Error404'>
-            <h1>404</h1>
+            <h1>Error 404 - Page not found</h1>
             <p>
                 <h2>FAQ</h2>
                 <h4>What does it mean?</h4>
@@ -17,7 +17,7 @@ export default function Error404() {
                 <h4>Why did this happen</h4>
                 The page wasn't found<br/>
                 <h4>How can I fix it?</h4>
-                You can fix this issue by submitting a <button className='fakeBugReport' onClick={handleSubmit}><u>bug report</u></button><br/>
+                You can fix this issue by submitting a <button className='fakeBugReport' onClick={handleSubmit}><u>bug report</u></button> to our top programmers<br/>
                 <div id='Rick'></div>
             </p>
         </div>

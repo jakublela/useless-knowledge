@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Button } from 'react-bootstrap';
 import '../Main/Main.css';
-import { Categories } from '../pages/Categories/Categories';
+import { Tags } from '../pages/Tags/Tags';
 
 function useFetch(url, next = true) {
     const [data, setData] = useState();
@@ -32,7 +32,7 @@ export function FetchTrivia({url, renderOnSuccess,
     if (data) return (
         <>
             {renderOnSuccess({data})}
-            <Button className='nextQuiz' onClick={() => {setNext(!next)}}>Gib anotha one</Button>
+            <Button className='nextQuiz' onClick={() => {setNext(!next)}}>Next Quiz Set</Button>
         </>
         );
 }
@@ -63,7 +63,7 @@ export function FetchTags({url,
     if (error) return renderOnFail(error);
     if (data) return (
         <>
-            <Categories tags={curTags}/>
+            <Tags tags={curTags}/>
             <ReactPaginate
                 onPageChange={handlePageChange}
                 pageCount={pageCount}

@@ -85,7 +85,7 @@ hr{
     width: 100% !important;
 }
 
-p{
+h4, p{
     background: none;
     color: antiquewhite;
     padding: 0 0 10px 0;
