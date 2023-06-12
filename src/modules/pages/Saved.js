@@ -1,12 +1,54 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Trivia } from '../HandlingAPI/Trivia';
+import { useState } from 'react';
+import ReactPaginate from 'react-paginate';
+
+const loadJSON = key => key && JSON.parse(sessionStorage.getItem(key));
 
 function SavedPage() {
-    let { type } = useParams();
+    let savedQuizzes = loadJSON('savedQuizzes');
+
+    const [curQuizzes, setCurQuizzes] = useState(null);
+    const [pageCount, setPageCount] = useState(0);
+    const [quizzesOffset, setQuizzesOffset] = useState(0);
+    const quizzesPerPage = 4;
+
+    useEffect(() => {
+        if(!savedQuizzes) return
+        let endOffset = quizzesOffset + quizzesPerPage;
+        
+        setCurQuizzes(savedQuizzes.slice(quizzesOffset, endOffset));
+        setPageCount(Math.ceil(savedQuizzes.length/quizzesPerPage));
+    }, [quizzesOffset, quizzesPerPage])
+
+    const handlePageChange = (event) => {
+        const newOffset = (event.selected * quizzesPerPage) % savedQuizzes.length;
+        setQuizzesOffset(newOffset);
+    };  
+    
+    if (!curQuizzes) {
+        return (
+            <>
+                <h2>Saves quizzes</h2>
+                <p>No saved quizzes</p>
+            </>
+        )}
     return (
         <>
-         <h1>This is saved page</h1>
-         <p>This is saved {type} page</p>
+            <h2>Saves quizzes</h2>
+            <Trivia data={curQuizzes} isSavable={false}/>
+            <ReactPaginate
+                onPageChange={handlePageChange}
+                pageCount={pageCount}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={1}
+                previousLabel={'<'}
+                nextLabel={'>'}
+                containerClassName={'pageMenu'}
+                pageLinkClassName={'page-number'}
+                previousLinkClassName={'page-number'}
+                nextLinkClassName={'page-number'}
+                activeLinkClassName={'active'}/>
         </>
     )
 }

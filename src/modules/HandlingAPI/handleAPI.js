@@ -3,6 +3,7 @@ import ReactPaginate from 'react-paginate';
 import { Button } from 'react-bootstrap';
 import '../css/Main.css';
 import { Tags } from '../pages/Tags';
+import { Quiz } from './Quiz.js';
 
 function useFetch(url, next = true) {
     const [data, setData] = useState();
@@ -31,7 +32,7 @@ export function FetchQuiz({url, renderOnSuccess,
     if (error) return renderOnFail(error);
     if (data) return (
         <>
-            {renderOnSuccess({data})}
+            <Quiz data={data}/>
             <Button className='nextQuiz' onClick={() => {setNext(!next)}}>Next Quiz Set</Button>
         </>
         );

@@ -25,7 +25,7 @@ export function Tags({tags}) {
     return (
         <div id='tag'>
             {tags.map((tag) => {
-                return <Button onClick={() => navigate(`/tag/${tag}`)} key={tag}>{formatText(tag)}</Button>
+                return <Button onClick={() => navigate(`/tags/${tag}`)} key={tag}>{formatText(tag)}</Button>
             })}
         </div>
     );

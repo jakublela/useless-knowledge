@@ -25,11 +25,15 @@ function Main() {
                 element={<Tags/>}
                 />
             <Route 
+                path='/tags/:tag'
+                element={<Quizes/>}
+                />
+            <Route 
                 path='/categories'
                 element={<Categories/>}
                 />
             <Route
-                path='/categories/:tag'
+                path='/categories/:category'
                 element={<Quizes/>}
                 />
             <Route 

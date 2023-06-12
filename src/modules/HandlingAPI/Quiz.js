@@ -1,21 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../css/Main.css';
 import '../css/Quiz.css';
 import { Button } from 'react-bootstrap';
 import { formatText } from './handleAPI';
 
-export function Quiz({data}) {
+const loadJSON = key => key && JSON.parse(sessionStorage.getItem(key));
+const saveJSON = (key, data) => sessionStorage.setItem(key, JSON.stringify(data));
+
+export function Quiz({data, isSavable = true}) {
+    
+    
+    const handleSave = data => {
+        let savedQuizzes = loadJSON('savedQuizzes')
+        let {id, question, correctAnswer, incorrectAnswers, category, difficulty, tags} = data;
+        let toSave = [];
+
+        if (savedQuizzes) toSave = savedQuizzes;
+       
+        if (!toSave.some((quiz) => {return id === quiz.id})) {
+            toSave.push({id, question, correctAnswer, incorrectAnswers, category, difficulty, tags})
+            saveJSON('savedQuizzes', toSave);
+        }
+    }
+    
     return (
         <div className='quizPost'>{
             data.map((quiz) => {
-                let answers = [<Answer text={quiz.correctAnswer} correct={true}/>];
-                quiz.incorrectAnswers.map((answer) => answers.push(<Answer text={answer}/>));
-                answers = shuffle(answers);
+                let answers = [<Answer text={quiz.correctAnswer} correct={true} key={"correctAnswer"}/>];
+                quiz.incorrectAnswers.map((answer, i) => answers.push(<Answer text={answer} key={"answer"+i}/>));
 
                 return (
                     <div key={quiz.id}>
                         <h5>{quiz.question.text}</h5>
-                        {answers}
+                        {shuffle(answers)}
                         <p className='quizInfo'>
                             <div className='quizInfoInfo'>
                                 Category: {formatText(quiz.category)} Difficulty: {quiz.difficulty} <br/>
@@ -25,6 +42,7 @@ export function Quiz({data}) {
                                 <button className='save-quiz-btn'>Save</button>   
                             </span>
                         </p>
+                        {isSavable ? (<Button onClick={() => {handleSave(quiz)}}>Save</Button>) : (null)}
                         <hr className='quizSeparator'/>
                     </div>
                 )
@@ -43,8 +61,8 @@ function Answer({text, correct = false}) {
             id='correctAnswer'
             onClick={handleOnClick} 
             className={isAnswered ? 'btn-correct-answer' : null}
-            ><i>{text}</i></Button>}
-            
+            >{text}</Button>}
+
     return <Button 
         variant='danger' 
         id='incorrectAnswer'
@@ -52,7 +70,6 @@ function Answer({text, correct = false}) {
         className={isAnswered ? 'btn-wrong-answer' : null}
         >{text}</Button>
 }
-
 
 function shuffle(array) {
     var m = array.length, t, i;
