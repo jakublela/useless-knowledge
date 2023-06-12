@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Main/Main.css';
+import '../css/Main.css';
 import { useParams } from 'react-router-dom';
 
 function CreatePage() {

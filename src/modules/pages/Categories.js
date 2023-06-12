@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import './css/Categories.css';
-import { FetchTags, formatText } from '../HandlingAPI/handleAPI';
+import React from 'react';
+import '../css/Categories.css';
+import { formatText } from '../HandlingAPI/handleAPI';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
 
 export default function CategoriesPage() {
-    const categories = ['science', 'film_and_tv', 'music', 'history', 'geography', 'art_and_literature', 'sport_and_leisure', 'general_knowledge', 'food_and_drink'];
+    const categories = ['science', 'film_and_tv', 'music', 'food_and_drink', 'geography', 'art_and_literature', 'sport_and_leisure', 'general_knowledge', 'history'];
 
     return (
 
@@ -22,7 +22,7 @@ export function Categories({categories}) {
     return (
         <div id='categories'>
             {categories.map((category) => {
-                return <Button onClick={() => navigate(`/categories/${category}`)} key={category}>{formatText(category)}</Button>
+                return <Button className='cat-btn' onClick={() => navigate(`/categories/${category}`)} key={category}>{formatText(category)}</Button>
             })}
         </div>
     );

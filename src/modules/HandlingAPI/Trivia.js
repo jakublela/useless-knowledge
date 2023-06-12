@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import '../Main/Main.css';
-import './trivia.css';
+import '../css/Main.css';
+import '../css/trivia.css';
 import { Button } from 'react-bootstrap';
 import { formatText } from './handleAPI';
 
@@ -14,7 +14,7 @@ export function Trivia({data}) {
 
                 return (
                     <div key={trivia.id}>
-                        <h2>{trivia.question.text}</h2>
+                        <h5>{trivia.question.text}</h5>
                         {answers}
                         <p className='quizInfo'>
                             Category: {formatText(trivia.category)} Difficulty: {trivia.difficulty} <br/>

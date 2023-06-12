@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import './Tags.css';
-import { FetchTags, formatText } from '../../HandlingAPI/handleAPI';
+import '../css/Tags.css';
+import { FetchTags, formatText } from '../HandlingAPI/handleAPI';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
 

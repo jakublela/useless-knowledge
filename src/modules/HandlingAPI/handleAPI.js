@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Button } from 'react-bootstrap';
-import '../Main/Main.css';
-import { Tags } from '../pages/Tags/Tags';
+import '../css/Main.css';
+import { Tags } from '../pages/Tags';
 
 function useFetch(url, next = true) {
     const [data, setData] = useState();
