@@ -125,8 +125,8 @@ function MenuButton({itemTitle}) {
     return (
         <Nav.Item>
             <Button 
-                className='dropdown-button' 
-                variant='secondary' 
+                variant='secondary'
+                className='dropdown-button'
                 onClick={() => navigate(`/${itemTitle.toLowerCase()}`)}>
                     {itemTitle} 
                 </Button>
