@@ -2,9 +2,10 @@ import './App.css';
 import { Container } from 'react-bootstrap';
 import Sidebar from './modules/sidebar/sidebar.js';
 import Main from './modules/Main/Main.js';
-import './modules/sidebar/sidebar.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import './modules/sidebar/sidebar.css';
+
 
 const App = props => {
   return (

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import '../Main/Main.css';
+import './trivia.css';
 import { Button } from 'react-bootstrap';
 import { formatText } from './handleAPI';
+import { hover } from '@testing-library/user-event/dist/hover';
 
 export function Trivia({data}) {
     return (
@@ -29,30 +31,23 @@ export function Trivia({data}) {
 }
 
 function Answer({text, correct = false}) {
-    const [isAnswerd, setIsAswerd] = useState(false);
-
-    const handleOnClick = () => {
-        setIsAswerd(true);
-        console.log(isAnswerd);
-    }
+    const [isAnswered, setIsAnswered] = useState(false);
+    const handleOnClick = () => {setIsAnswered(true)};
 
     if (correct) {
         return <Button 
             variant='success' 
             id='correctAnswer'
-            onClick={() => {handleOnClick()}} 
-            style={{
-                backgroundColor: isAnswerd ? '#006f00' : '',
-                borderColor: isAnswerd ? '#00bb00' : '',
-              }}><i>{text}</i></Button>}
+            onClick={handleOnClick} 
+            className={isAnswered ? 'btn-correct-answer' : null}
+            ><i>{text}</i></Button>}
+            
     return <Button 
         variant='danger' 
         id='incorrectAnswer'
-        onClick={() => {handleOnClick()}} 
-        style={{
-            backgroundColor: isAnswerd ? '#6f0000' : '',
-            color: isAnswerd ? '#bb0000' : '',
-          }}>{text}</Button>
+        onClick={handleOnClick} 
+        className={isAnswered ? 'btn-wrong-answer' : null}
+        >{text}</Button>
 }
 
 

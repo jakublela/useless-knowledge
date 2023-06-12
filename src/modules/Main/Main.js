@@ -3,7 +3,7 @@ import './Main.css';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/Home.js';
 import TriviaPage from '../pages/TriviaPage';
-import CategoriesPage from '../pages/Categories/Categories.js';
+import CategoriesPage from '../pages/Categories.js';
 import CreatePage from '../pages/Create.js';
 import SavedPage from '../pages/Saved.js';
 import Error404 from '../pages/404.js';

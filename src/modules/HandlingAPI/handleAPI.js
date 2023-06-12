@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Button } from 'react-bootstrap';
 import '../Main/Main.css';
-import { Categories } from '../pages/Categories/Categories';
+import { Categories } from '../pages/Categories';
 
 function useFetch(url, next = true) {
     const [data, setData] = useState();

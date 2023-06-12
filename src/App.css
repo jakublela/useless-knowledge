@@ -30,12 +30,12 @@
 
 .btn{
   background-color: #1A1A1A !important;
-  border: #1A1A1A solid 2px !important;
+  border: #2c2c2c  solid 2px !important;
 }
 
-.btn:hover, .btn:focus{
-  background-color: #41008141 !important;
-  border: #400081 solid 2px !important;
+.btn:hover {
+  background-color: #41008141;
+  border: #400081 solid 2px;
 } 
 
 .dropdown-menu{

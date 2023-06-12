@@ -1,0 +1,19 @@
+.btn-wrong-answer {
+    background-color: #6f0000 !important;
+    border-color: #bb0000 !important;
+}
+
+.btn-wrong-answer:hover {
+    background-color: #5e0000 !important;
+    border-color: #aa0000 !important;
+}
+
+.btn-correct-answer {
+    background-color: #006f00 !important;
+    border-color: #00bb00 !important;
+}
+
+.btn-correct-answer:hover {
+    background-color: #005e00 !important;
+    border-color: #00aa00 !important;
+}
