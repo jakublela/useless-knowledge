@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Main/Main.css';
 import { Button } from 'react-bootstrap';
 import { formatText } from './handleAPI';
@@ -7,10 +7,14 @@ export function Trivia({data}) {
     return (
         <div className='quizPost'>{
             data.map((trivia) => {
+                let answers = [<Answer text={trivia.correctAnswer} correct={true}/>];
+                trivia.incorrectAnswers.map((answer) => answers.push(<Answer text={answer}/>));
+                answers = shuffle(answers);
+
                 return (
                     <div key={trivia.id}>
                         <h2>{trivia.question.text}</h2>
-                        <Answers incorrectAnswers={trivia.incorrectAnswers} correctAnswer={trivia.correctAnswer}/>
+                        {answers}
                         <p className='quizInfo'>
                             Category: {formatText(trivia.category)} Difficulty: {trivia.difficulty} <br/>
                             Tags: {trivia.tags.map((tag) => formatText(tag)).join(", ")}
@@ -24,20 +28,31 @@ export function Trivia({data}) {
     
 }
 
-function Answers({correctAnswer, incorrectAnswers}) {
-    let answers = [<Answer text={correctAnswer} correct={true}/>];
-    incorrectAnswers.map((answer) => answers.push(<Answer text={answer}/>));
-
-    return (
-        <>
-            {shuffle(answers)}
-        </>)
-    
-}
-
 function Answer({text, correct = false}) {
-    if (correct) return <Button variant='success' id='correctAnswer'><i>{text}</i></Button> 
-    return <Button variant='danger' id='incorrectAnswer'>{text}</Button>
+    const [isAnswerd, setIsAswerd] = useState(false);
+
+    const handleOnClick = () => {
+        setIsAswerd(true);
+        console.log(isAnswerd);
+    }
+
+    if (correct) {
+        return <Button 
+            variant='success' 
+            id='correctAnswer'
+            onClick={() => {handleOnClick()}} 
+            style={{
+                backgroundColor: isAnswerd ? '#006f00' : '',
+                borderColor: isAnswerd ? '#00bb00' : '',
+              }}><i>{text}</i></Button>}
+    return <Button 
+        variant='danger' 
+        id='incorrectAnswer'
+        onClick={() => {handleOnClick()}} 
+        style={{
+            backgroundColor: isAnswerd ? '#6f0000' : '',
+            color: isAnswerd ? '#bb0000' : '',
+          }}>{text}</Button>
 }
 
 

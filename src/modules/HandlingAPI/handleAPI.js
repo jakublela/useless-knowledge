@@ -69,8 +69,8 @@ export function FetchTags({url,
                 pageCount={pageCount}
                 pageRangeDisplayed={3}
                 marginPagesDisplayed={1}
-                previousLabel={'Prev'}
-                nextLabel={'Next'}
+                previousLabel={'<'}
+                nextLabel={'>'}
                 containerClassName={'pageMenu'}
                 pageLinkClassName={'page-number'}
                 previousLinkClassName={'page-number'}

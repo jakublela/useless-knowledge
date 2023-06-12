@@ -10,7 +10,6 @@ export default function TriviaPage() {
     url.searchParams.append("limit", 4);
     if (tag) url.searchParams.append("tags", tag);
 
-    console.log(url.href);
     return (
         <div className='main'>
             <h1>Quiz</h1>
