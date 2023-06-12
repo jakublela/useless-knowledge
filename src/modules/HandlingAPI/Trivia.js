@@ -26,7 +26,6 @@ export function Trivia({data}) {
             })
         }</div>
     )
-    
 }
 
 function Answer({text, correct = false}) {
