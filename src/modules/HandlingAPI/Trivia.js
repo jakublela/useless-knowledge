@@ -4,29 +4,45 @@ import '../css/trivia.css';
 import { Button } from 'react-bootstrap';
 import { formatText } from './handleAPI';
 
-export function Trivia({data}) {
+const loadJSON = key => key && JSON.parse(sessionStorage.getItem(key));
+const saveJSON = (key, data) => sessionStorage.setItem(key, JSON.stringify(data));
+
+export function Trivia({data, isSavable = true}) {
+    const [isSaved, setIsSaved] = useState(['Save', 'Save', 'Save', 'Save']);
+
+    useEffect(() => {
+        let saveButton = isSaved;
+        saveButton[i] = 'Saved'
+        setIsSaved(saveButton);
+        console.log(saveButton);
+    }, [saveButton])
+    
     return (
         <div className='quizPost'>{
             data.map((trivia) => {
-                let answers = [<Answer text={trivia.correctAnswer} correct={true}/>];
-                trivia.incorrectAnswers.map((answer) => answers.push(<Answer text={answer}/>));
-                answers = shuffle(answers);
-
-                return (
-                    <div key={trivia.id}>
-                        <h5>{trivia.question.text}</h5>
-                        {answers}
-                        <p className='quizInfo'>
-                            Category: {formatText(trivia.category)} Difficulty: {trivia.difficulty} <br/>
-                            Tags: {trivia.tags.map((tag) => formatText(tag)).join(", ")}
-                        </p>
-                        <hr className='quizSeparator'/>
-                    </div>
-                )
+                <Quiz trivia={trivia} isSavable={isSavable}/>
             })
         }</div>
     )
     
+}
+
+function Quiz(trivia, isSavable) {
+    let answers = [<Answer text={trivia.correctAnswer} correct={true} key={"correctAnswer"}/>];
+    trivia.incorrectAnswers.map((answer, i) => answers.push(<Answer text={answer} key={"answer"+i}/>));
+
+    return (
+        <div key={trivia.id}>
+            <h5>{trivia.question.text}</h5>
+            {shuffle(answers)}
+            <p className='quizInfo'>
+                Category: {formatText(trivia.category)} Difficulty: {trivia.difficulty} <br/>
+                Tags: {trivia.tags.map((tag) => formatText(tag)).join(", ")}
+            </p>
+            {isSavable ? (<Button onClick={() => {handleOnClick(trivia, i)}}>{isSaved[i]}</Button>) : (null)}
+            <hr className='quizSeparator'/>
+        </div>
+    )
 }
 
 function Answer({text, correct = false}) {
@@ -48,7 +64,6 @@ function Answer({text, correct = false}) {
         className={isAnswered ? 'btn-wrong-answer' : null}
         >{text}</Button>
 }
-
 
 function shuffle(array) {
     var m = array.length, t, i;

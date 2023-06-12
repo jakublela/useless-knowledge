@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import '../css/Main.css';
-import { useParams } from 'react-router-dom';
-
 function CreatePage() {
-    let { type } = useParams();
     return (
         <QuizForm/>
     )

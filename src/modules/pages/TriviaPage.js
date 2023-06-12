@@ -1,5 +1,4 @@
 import React from 'react';
-import { Trivia } from '../HandlingAPI/Trivia';
 import { FetchTrivia } from '../HandlingAPI/handleAPI';
 import '../css/Main.css';
 import { useParams } from 'react-router';
@@ -14,7 +13,7 @@ export default function TriviaPage() {
     return (
         <div className='main'>
             <h2>Quiz</h2>
-            <FetchTrivia url={url.href} renderOnSuccess={Trivia} />
+            <FetchTrivia url={url.href}/>
         </div>
     )
 }
