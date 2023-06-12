@@ -21,7 +21,7 @@ function useFetch(url, next = true) {
     return { data, loading, error };
 }
 
-export function FetchTrivia({url, renderOnSuccess,
+export function FetchQuiz({url, renderOnSuccess,
     renderOnLoading = <h1>loading...</h1>,
     renderOnFail = error => (<pre>{JSON.stringify(error, null, 2)}</pre>)}) {
     const [next, setNext] = useState(false);

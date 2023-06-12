@@ -1,24 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import '../css/Main.css';
-import '../css/trivia.css';
+import '../css/Quiz.css';
 import { Button } from 'react-bootstrap';
 import { formatText } from './handleAPI';
 
-export function Trivia({data}) {
+export function Quiz({data}) {
     return (
         <div className='quizPost'>{
-            data.map((trivia) => {
-                let answers = [<Answer text={trivia.correctAnswer} correct={true}/>];
-                trivia.incorrectAnswers.map((answer) => answers.push(<Answer text={answer}/>));
+            data.map((quiz) => {
+                let answers = [<Answer text={quiz.correctAnswer} correct={true}/>];
+                quiz.incorrectAnswers.map((answer) => answers.push(<Answer text={answer}/>));
                 answers = shuffle(answers);
 
                 return (
-                    <div key={trivia.id}>
-                        <h5>{trivia.question.text}</h5>
+                    <div key={quiz.id}>
+                        <h5>{quiz.question.text}</h5>
                         {answers}
                         <p className='quizInfo'>
-                            Category: {formatText(trivia.category)} Difficulty: {trivia.difficulty} <br/>
-                            Tags: {trivia.tags.map((tag) => formatText(tag)).join(", ")}
+                            <div className='quizInfoInfo'>
+                                Category: {formatText(quiz.category)} Difficulty: {quiz.difficulty} <br/>
+                                Tags: {quiz.tags.map((tag) => formatText(tag)).join(", ")}
+                            </div>
+                            <span className='save-quiz'>
+                                <button className='save-quiz-btn'>Save</button>   
+                            </span>
                         </p>
                         <hr className='quizSeparator'/>
                     </div>

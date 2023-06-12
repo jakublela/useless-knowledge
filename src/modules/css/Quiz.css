@@ -17,3 +17,25 @@
     background-color: #005e00 !important;
     border-color: #00aa00 !important;
 }
+
+.save-quiz {
+    margin-right: 0 !important;
+}
+
+.quizInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quizInfoInfo {
+    margin: 0 auto 0 auto !important;
+    transform: translateX(30px);
+}
+
+.save-quiz-btn {
+    background: none !important;
+    border: none !important;
+    margin: 0 20px 0 0 !important;
+    width: 45px;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Trivia } from '../HandlingAPI/Trivia';
-import { FetchTrivia } from '../HandlingAPI/handleAPI';
+import { Quiz } from '../HandlingAPI/Quiz';
+import { FetchQuiz } from '../HandlingAPI/handleAPI';
 import '../css/Main.css';
 import { useParams } from 'react-router';
 
-export default function TriviaPage() { 
+export default function QuizPage() { 
     let { tag } = useParams();
     let url = new URL("https://the-trivia-api.com/v2/questions?"); 
     url.searchParams.append("limit", 4);
@@ -13,7 +13,7 @@ export default function TriviaPage() {
     return (
         <div className='main'>
             <h2>Quiz</h2>
-            <FetchTrivia url={url.href} renderOnSuccess={Trivia} />
+            <FetchQuiz url={url.href} renderOnSuccess={Quiz} />
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/Main.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home.js';
-import Quizes from '../pages/TriviaPage.js';
+import Quizes from '../pages/QuizPage.js';
 import Tags from '../pages/Tags.js';
 import Create from '../pages/Create.js';
 import Saved from '../pages/Saved.js';
