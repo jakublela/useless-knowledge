@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Quiz } from '../HandlingAPI/Quiz.js';
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
+import '../css/Main.css';
 
 const loadJSON = key => key && JSON.parse(sessionStorage.getItem(key));
 
@@ -19,7 +20,7 @@ function SavedPage() {
         
         setCurQuizzes(savedQuizzes.slice(quizzesOffset, endOffset));
         setPageCount(Math.ceil(savedQuizzes.length/quizzesPerPage));
-    }, [quizzesOffset, quizzesPerPage])
+    }, [quizzesOffset, quizzesPerPage]) /*type in savedQuizzes after quizzesPerPage */
 
     const handlePageChange = (event) => {
         const newOffset = (event.selected * quizzesPerPage) % savedQuizzes.length;
@@ -29,13 +30,13 @@ function SavedPage() {
     if (!curQuizzes) {
         return (
             <>
-                <h2>Saves quizzes</h2>
+                <h2>Saved quizzes</h2>
                 <p>No saved quizzes</p>
             </>
         )}
     return (
-        <>
-            <h2>Saves quizzes</h2>
+        <div className='main'>
+            <h2>Saved quizzes</h2>
             <Quiz data={curQuizzes} isSavable={false}/>
             <ReactPaginate
                 onPageChange={handlePageChange}
@@ -49,7 +50,7 @@ function SavedPage() {
                 previousLinkClassName={'page-number'}
                 nextLinkClassName={'page-number'}
                 activeLinkClassName={'active'}/>
-        </>
+        </div>
     )
 }
 

@@ -39,10 +39,9 @@ export function Quiz({data, isSavable = true}) {
                                 Tags: {quiz.tags.map((tag) => formatText(tag)).join(", ")}
                             </div>
                             <span className='save-quiz'>
-                                <button className='save-quiz-btn'>Save</button>   
+                                {isSavable ? (<button onClick={() => {handleSave(quiz)}} className='save-quiz-btn'>Save</button>) : (null)}
                             </span>
                         </p>
-                        {isSavable ? (<Button onClick={() => {handleSave(quiz)}}>Save</Button>) : (null)}
                         <hr className='quizSeparator'/>
                     </div>
                 )

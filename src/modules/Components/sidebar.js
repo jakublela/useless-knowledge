@@ -96,11 +96,11 @@ function RegisterPopup() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const password = inputs.password, passwordConfirm = inputs.passwordConfirm;
+
         console.log(password === passwordConfirm);
         if(password.toString() === passwordConfirm.toString()) {
             alert(JSON.stringify(inputs));
         }else{
-            document.getElementsByClassName('form').
             alert('Passwords do not match');
         }
         alert(`Username: ${inputs.username}, Email: ${inputs.email}, Password: ${inputs.password}, Confirm Password: ${inputs.passwordConfirm}`);
