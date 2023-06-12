@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Nav, Button } from 'react-bootstrap';
-import './sidebar.css';
+import '../css/sidebar.css';
 import pfp from './default_pfp.jpg';
 import { useNavigate } from 'react-router-dom';
 import Popup from '../Components/Popup.js';
@@ -19,11 +19,11 @@ const Sidebar = props => {
                 <h4>✨Useless✨<br/>✨Knowledge✨</h4>
                 <hr/>
                 <div className='navigation'>
-                    <MenuButton itemTitle='Random' className='dropdown'/>
+                    <MenuButton itemTitle='Random Quizes' className='dropdown'/>
                     <MenuButton itemTitle='Categories' className='dropdown'/>
                     <MenuButton itemTitle='Tags' className='dropdown'/>
-                    <MenuButton itemTitle='Create' className='dropdown'/>
-                    <MenuButton itemTitle='Saved' className='dropdown'/>
+                    <MenuButton itemTitle='Create Quiz' className='dropdown'/>
+                    <MenuButton itemTitle='Saved Quizes' className='dropdown'/>
                     <MenuButton itemTitle='404' className='dropdown'/>
                 </div>
                 <footer className="ooger">

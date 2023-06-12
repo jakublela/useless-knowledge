@@ -1,13 +1,13 @@
 import React from 'react';
-import './Main.css';
+import '../css/Main.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home.js';
-import Quizes from '../pages/TriviaPage';
-import Tags from '../pages/Tags/Tags.js';
+import Quizes from '../pages/TriviaPage.js';
+import Tags from '../pages/Tags.js';
 import Create from '../pages/Create.js';
 import Saved from '../pages/Saved.js';
 import Error404 from '../pages/404.js';
-import Categories from '../pages/Categories/Categories';
+import Categories from '../pages/Categories.js';
 
 function Main() {
     return (

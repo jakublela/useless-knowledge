@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import '../Main/Main.css';
-import './trivia.css';
+import '../css/Main.css';
+import '../css/trivia.css';
 import { Button } from 'react-bootstrap';
 import { formatText } from './handleAPI';
 import { hover } from '@testing-library/user-event/dist/hover';

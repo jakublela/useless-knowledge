@@ -1,7 +1,7 @@
 import React from 'react';
 import { Trivia } from '../HandlingAPI/Trivia';
 import { FetchTrivia } from '../HandlingAPI/handleAPI';
-import '../Main/Main.css';
+import '../css/Main.css';
 import { useParams } from 'react-router';
 
 export default function TriviaPage() { 

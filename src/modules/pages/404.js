@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../Main/Main.css';
+import '../css/Main.css';
 
 export default function Error404() {
     const handleSubmit = (event) => {
