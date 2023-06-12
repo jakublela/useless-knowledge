@@ -11,17 +11,13 @@ export default function CategoriesPage() {
 
         <div className='main'>
             <h1 className='category-header'>Categories</h1>
-            <FetchTags url={categories} renderOnSuccess={categories}/>
+            <Categories categories={categories}/>
         </div>
     )
 }
 
 export function Categories({categories}) {
     const navigate = useNavigate();
-
-    useEffect(() => {
-        if (!categories) return
-    }, [categories])
 
     return (
         <div id='categories'>

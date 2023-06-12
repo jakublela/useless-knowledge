@@ -34,8 +34,8 @@
 }
 
 .btn:hover {
-  background-color: #41008141;
-  border: #400081 solid 2px;
+  background-color: #41008141 !important;
+  border: #400081 solid 2px !important;
 } 
 
 .dropdown-menu {

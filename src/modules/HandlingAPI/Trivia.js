@@ -3,7 +3,6 @@ import '../Main/Main.css';
 import './trivia.css';
 import { Button } from 'react-bootstrap';
 import { formatText } from './handleAPI';
-import { hover } from '@testing-library/user-event/dist/hover';
 
 export function Trivia({data}) {
     return (
@@ -40,8 +39,8 @@ function Answer({text, correct = false}) {
             id='correctAnswer'
             onClick={handleOnClick} 
             className={isAnswered ? 'btn-correct-answer' : null}
-            ><i>{text}</i></Button>}
-            
+            >{text}</Button>}
+
     return <Button 
         variant='danger' 
         id='incorrectAnswer'

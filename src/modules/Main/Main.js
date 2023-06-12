@@ -7,7 +7,7 @@ import Tags from '../pages/Tags/Tags.js';
 import Create from '../pages/Create.js';
 import Saved from '../pages/Saved.js';
 import Error404 from '../pages/404.js';
-import Categories from '../pages/Categories/Categories';
+import Categories from '../pages/Categories';
 
 function Main() {
     return (
@@ -25,11 +25,15 @@ function Main() {
                 element={<Tags/>}
                 />
             <Route 
+                path='/tags/:tag'
+                element={<Quizes/>}
+                />
+            <Route 
                 path='/categories'
                 element={<Categories/>}
                 />
             <Route
-                path='/categories/:tag'
+                path='/categories/:category'
                 element={<Quizes/>}
                 />
             <Route 
